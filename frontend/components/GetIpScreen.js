@@ -34,7 +34,7 @@ const GetIpScreen = ({setIp}) => {
         onChange={e => {
           setText(e.nativeEvent.text);
         }}
-        marginY={4}
+        marginY={6}
       />
       <Button width={'100%'} onPress={onSubmitHandler}>
         Connect
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   beforeIp: {
     height: '100%',
     width: '100%',
-    backgroundColor: 'black',
+    backgroundColor: '#222222',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 
   beforeIpText: {
     color: 'white',
-    fontSize: 25,
+    fontSize: 21,
     fontWeight: '600',
     textAlign: 'center',
   },
