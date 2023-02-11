@@ -22,7 +22,7 @@ app.register_blueprint(sliders, url_prefix="/api/sliders")
 app.register_blueprint(wikipedia, url_prefix='/api/wikipedia')
 
 
-
+# Root Directory
 @app.route("/api/")
 def index():
     print("/api")
