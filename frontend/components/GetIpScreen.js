@@ -10,7 +10,7 @@ const GetIpScreen = ({setIp}) => {
 
   const onSubmitHandler = () => {
     axios
-      .get(`http://${text}/api/verify`)
+      .get(`http://${text}:8080/api/verify`)
       .then(res => {
         if (res.data == 'Success') {
           setIp(text);

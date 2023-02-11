@@ -19,6 +19,7 @@ const MacroBlock = ({color, text, route, width, height, icon, onClick}) => {
     <TouchableHighlight
       onPress={onClick ? onClick : route ? onClickHandler : null}>
       <View
+        elevation={0}
         style={{
           borderColor: color,
           borderWidth: 2,
@@ -30,6 +31,9 @@ const MacroBlock = ({color, text, route, width, height, icon, onClick}) => {
           alignItems: 'center',
           justifyContent: 'center',
           marginVertical: 10,
+          shadowColor: color,
+          shadowOpacity: 0.1,
+          shadowRadius: 0.1,
         }}>
         {icon ? (
           <Image

@@ -46,7 +46,7 @@ const App = () => {
             <Macro
               icon={chromePNG}
               color="cyan"
-              route={`http://${ip}/api/browser`}
+              route={`http://${ip}:8080/api/browser`}
               text={'Open Browser'}
             />
             <VolumeSlider ip={ip} />
@@ -67,6 +67,15 @@ const App = () => {
               }}
               text={'Open Encyclopedia'}
             />
+            <Macro
+              icon={wikipediaPNG}
+              color="grey"
+              onClick={() => {
+                setWikiPrompt(true);
+              }}
+              text={'Ask Me Anything!'}
+            />
+            <View style={{height: 20}}></View>
             <AlertDialog
               isOpen={wikiPrompt}
               onClose={() => {
@@ -94,7 +103,9 @@ const App = () => {
                       width={'100%'}
                       onPress={() => {
                         axios
-                          .get(`http://${ip}/api/wikipedia?q=${wikiSearch}`)
+                          .get(
+                            `http://${ip}:8080/api/wikipedia?q=${wikiSearch}`,
+                          )
                           .then(res => {
                             console.log(res.data);
                             setWikiPrompt(false);
@@ -138,7 +149,7 @@ const App = () => {
                       onPress={() => {
                         axios
                           .get(
-                            `http://${ip}/api/music/play_song?q=${ytmusicSearch}`,
+                            `http://${ip}:8080/api/music/play_song?q=${ytmusicSearch}`,
                           )
                           .then(res => {
                             console.log(res.data);

@@ -8,7 +8,7 @@ import volumePNG from '../assets/volume.png';
 const VolumeSlider = ({ip}) => {
   const onChangeHandler = volume => {
     axios
-      .get(`http://${ip}/api/sliders/volume/?p=${Math.floor(volume)}`)
+      .get(`http://${ip}:8080/api/sliders/volume/?p=${Math.floor(volume)}`)
       .then(res => {
         console.log(res.data);
       })

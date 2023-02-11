@@ -7,7 +7,9 @@ import brightnessPNG from '../assets/brightness.png';
 const BrightnessSlider = ({ip}) => {
   const onChangeHandler = brightness => {
     axios
-      .get(`http://${ip}/api/sliders/brightness?p=${Math.floor(brightness)}`)
+      .get(
+        `http://${ip}:8080/api/sliders/brightness?p=${Math.floor(brightness)}`,
+      )
       .then(res => {
         console.log(res.data);
       })
