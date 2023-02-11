@@ -6,7 +6,8 @@ import socket
 # Import blueprints
 from blueprints.browser import browser
 from blueprints.verify import verify
-from blueprints.settings import settings
+from blueprints.sliders import sliders
+from blueprints.wikipedia import wikipedia
 
 
 
@@ -17,7 +18,8 @@ hostname = socket.getfqdn() # Get the hostname
 # Register Blueprints
 app.register_blueprint(browser, url_prefix="/api/browser")
 app.register_blueprint(verify, url_prefix="/api/verify")
-app.register_blueprint(settings, url_prefix="/api/settings")
+app.register_blueprint(sliders, url_prefix="/api/sliders")
+app.register_blueprint(wikipedia, url_prefix='/api/wikipedia')
 
 
 
@@ -27,4 +29,4 @@ def index():
     return "Ok", 200;
 
 if __name__ == "__main__":
-    app.run(host=socket.gethostbyname_ex(hostname)[2][0], debug=True, port=8080)
+    app.run(host=socket.gethostbyname_ex(hostname)[2][1], debug=True, port=8080)
