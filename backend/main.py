@@ -24,7 +24,7 @@ app.register_blueprint(wikipedia, url_prefix='/api/wikipedia')
 app.register_blueprint(music_bp, url_prefix='/api/music')
 
 
-
+# Root Directory
 @app.route("/api/")
 def index():
     print("/api")
