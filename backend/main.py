@@ -4,7 +4,11 @@ import socket
 
 
 # Import blueprints
-from blueprints.browser_endpoint import browser
+from blueprints.browser import browser
+from blueprints.verify import verify
+from blueprints.settings import settings
+
+
 
 # Initialize App
 app = Flask(__name__)
@@ -12,10 +16,14 @@ hostname = socket.getfqdn() # Get the hostname
 
 # Register Blueprints
 app.register_blueprint(browser, url_prefix="/api/browser")
+app.register_blueprint(verify, url_prefix="/api/verify")
+app.register_blueprint(settings, url_prefix="/api/settings")
+
+
 
 @app.route("/api/")
 def index():
-    print("i love wome")
+    print("/api")
     return "Ok", 200;
 
 if __name__ == "__main__":
