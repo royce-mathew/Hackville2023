@@ -40,7 +40,7 @@ def login(sleep: int):
     driver.find_element(by=By.NAME, value='Passwd').send_keys(PASSWORD)
     time.sleep(sleep)
     driver.find_element(by=By.CSS_SELECTOR, value='.VfPpkd-LgbsSe-OWXEXe-k8QpJ:not(:disabled)').click()
-    time.sleep(sleep)
+    time.sleep(3)
 
 
-login(2)
+login(1.5)
