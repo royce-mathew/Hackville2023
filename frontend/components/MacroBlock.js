@@ -1,8 +1,8 @@
-import {View, Text, TouchableHighlight} from 'react-native';
+import {View, Text, TouchableHighlight, Image} from 'react-native';
 import React from 'react';
 import axios from 'axios';
 
-const Macro = ({color, text, route, width, height}) => {
+const MacroBlock = ({color, text, route, width, height, icon}) => {
   const onClickHandler = () => {
     console.log('going here');
     axios
@@ -19,14 +19,23 @@ const Macro = ({color, text, route, width, height}) => {
     <TouchableHighlight onPress={onClickHandler}>
       <View
         style={{
-          backgroundColor: color,
-          width: width ? width : '50%',
+          borderColor: color,
+          borderWidth: 2,
+          borderRadius: 10,
+          width: width ? width : '100%',
           height: height ? height : null,
-          aspectRatio: 1,
+          padding: 15,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          marginVertical: 10,
         }}>
+        {icon ? (
+          <Image
+            source={icon}
+            style={{width: 80, height: 80, marginBottom: 10}}
+          />
+        ) : null}
         <Text
           style={{
             color: 'white',
@@ -41,4 +50,4 @@ const Macro = ({color, text, route, width, height}) => {
   );
 };
 
-export default Macro;
+export default MacroBlock;

@@ -1,8 +1,14 @@
-import {NativeBaseProvider} from 'native-base';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {NativeBaseProvider, Slider} from 'native-base';
+import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
 import React, {useState} from 'react';
-import Macro from './components/Macro';
+import Macro from './components/MacroBlock';
 import GetIpScreen from './components/GetIpScreen';
+import VolumeSlider from './components/VolumeSlider';
+import BrightnessSlider from './components/BrightnessSlider';
+
+import chromePNG from './assets/chrome.png';
+import youtubePNG from './assets/youtube.png';
+import wikipediaPNG from './assets/wikipedia.png';
 
 const App = () => {
   const [ip, setIp] = useState();
@@ -10,18 +16,35 @@ const App = () => {
   if (!ip) {
     return (
       <NativeBaseProvider>
-        <GetIpScreen />
+        <GetIpScreen setIp={setIp} />
       </NativeBaseProvider>
     );
   } else {
     return (
-      <ScrollView style={styles.main}>
-        <Macro
-          color="blue"
-          route="http://192.168.143.147:8080"
-          text={'Open Browser'}
-        />
-      </ScrollView>
+      <NativeBaseProvider>
+        <ScrollView style={styles.main}>
+          <Macro
+            icon={chromePNG}
+            color="cyan"
+            route={`http://${ip}/api/browser`}
+            text={'Open Browser'}
+          />
+          <VolumeSlider ip={ip} />
+          <BrightnessSlider ip={ip} />
+          <Macro
+            icon={youtubePNG}
+            color="red"
+            route={`http://${ip}/api/browser`}
+            text={'Open Youtube Music'}
+          />
+          <Macro
+            icon={wikipediaPNG}
+            color="grey"
+            route={`http://${ip}/api/wikipedia`}
+            text={'Open Encyclopedia'}
+          />
+        </ScrollView>
+      </NativeBaseProvider>
     );
   }
 };
