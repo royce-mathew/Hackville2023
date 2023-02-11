@@ -5,5 +5,6 @@ wikipedia = Blueprint("wikipedia", __name__)
 
 @wikipedia.route("/", methods=["GET"])
 def index():
-    wikipedia_search.main()
+    query = request.args.get("q")
+    wikipedia_search.search(query)
     return "Success", 200;
