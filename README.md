@@ -5,10 +5,10 @@ EZConnect is a combination of a mobile app and a desktop app that allow you to c
 
 ## Features
 
-*User-friendly display
-*Tutorial mode for learning web navigation
-*Opens Google Search and Wikipedia
-*Changes volume and brightness
+* User-friendly display
+* Tutorial mode for learning web navigation
+* Opens Google Search and Wikipedia
+* Changes volume and brightness
 
 ## Installation
 
