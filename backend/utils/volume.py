@@ -1,11 +1,11 @@
-from pynput.keyboard import Key,Controller
-keyboard = Controller()
+from ctypes import cast, POINTER
+from comtypes import CLSCTX_ALL
+from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
-class Volume:
-    def volume_up():
-        keyboard.press(Key.media_volume_up)
-        keyboard.release(Key.media_volume_up)
-    
-    def volume_down():
-        keyboard.press(Key.media_volume_down)
-        keyboard.release(Key.media_volume_down)
+
+def set_volume(vol: float):
+    devices = AudioUtilities.GetSpeakers()
+    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+    volume = cast(interface, POINTER(IAudioEndpointVolume))
+
+    volume.SetMasterVolumeLevelScalar(vol/100, None)
