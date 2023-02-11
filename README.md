@@ -10,5 +10,15 @@ EZConnect is a combination of a mobile app and a desktop app that allow you to c
 * Opens Google Search and Wikipedia
 * Changes volume and brightness
 
+
 ## Installation
+
+1. Download 
+
+
+## Requirements
+
+* Windows 10 or later on PC
+* Mobile device
+
 

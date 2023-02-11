@@ -2,7 +2,7 @@ import {View, Text, TouchableHighlight, Image} from 'react-native';
 import React from 'react';
 import axios from 'axios';
 
-const MacroBlock = ({color, text, route, width, height, icon}) => {
+const MacroBlock = ({color, text, route, width, height, icon, onClick}) => {
   const onClickHandler = () => {
     console.log('going here');
     axios
@@ -16,7 +16,8 @@ const MacroBlock = ({color, text, route, width, height, icon}) => {
   };
 
   return (
-    <TouchableHighlight onPress={onClickHandler}>
+    <TouchableHighlight
+      onPress={onClick ? onClick : route ? onClickHandler : null}>
       <View
         style={{
           borderColor: color,
