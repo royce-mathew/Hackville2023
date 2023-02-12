@@ -32,7 +32,7 @@ const App = () => {
   const [ytmusicPrompt, setYtmusicPrompt] = useState(false);
   const [ytmusicSearch, setYtmusicSearch] = useState('');
 
-  if (ip) {
+  if (!ip) {
     return (
       <NativeBaseProvider>
         <GetIpScreen setIp={setIp} />
