@@ -112,14 +112,14 @@ const App = () => {
                     <Button
                       width={'100%'}
                       onPress={() => {
+                        setWikiPrompt(false);
+                        setWikiSearch('');
                         axios
                           .get(
                             `http://${ip}:8080/api/wikipedia?q=${wikiSearch}`,
                           )
                           .then(res => {
                             console.log(res.data);
-                            setWikiPrompt(false);
-                            setWikiSearch('');
                           })
                           .catch(err => {
                             console.log(err);

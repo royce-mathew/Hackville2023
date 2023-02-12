@@ -1,6 +1,6 @@
 import openai
 import json;
-import config
+import backend.config as config
 
 
 openai.api_key = config.OPENAI_API_KEY;

@@ -4,19 +4,20 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import time
+from config import GOOGLE_USERNAME, GOOGLE_PASSWORD
 
 
-def get_login_info():
+# def get_login_info():
 
-    info = []
-    f = open('login.txt')
+#     info = []
+#     f = open('login.txt')
 
-    for line in f.readlines():
-        info.append(line.strip('\n'))
+#     for line in f.readlines():
+#         info.append(line.strip('\n'))
 
-    f.close()
+#     f.close()
 
-    return info
+#     return info
 
 
 def play_song(song: str):
@@ -25,10 +26,12 @@ def play_song(song: str):
     options = uc.ChromeOptions()
     driver = uc.Chrome(options=options, use_subprocess=True)
     driver.get(url)
+    driver.find_element(by=By.TAG_NAME, value="body").send_keys(Keys.F11)
+    # driver.maximize_window()
 
-    login_info_holder = get_login_info()
-    USERNAME = login_info_holder[0]
-    PASSWORD = login_info_holder[1]
+    # login_info_holder = get_login_info()
+    # USERNAME = login_info_holder[0]
+    # PASSWORD = login_info_holder[1]
 
     wait = WebDriverWait(driver, timeout=10)
 
@@ -39,7 +42,7 @@ def play_song(song: str):
     username_field = 'identifier'
     wait.until(EC.presence_of_element_located((By.NAME, username_field)))
     driver.implicitly_wait(7)
-    driver.find_element(by=By.NAME, value=username_field).send_keys(USERNAME)
+    driver.find_element(by=By.NAME, value=username_field).send_keys(GOOGLE_USERNAME)
     driver.find_element(by=By.NAME, value=username_field).send_keys(Keys.ENTER)
     time.sleep(3)
 
@@ -47,7 +50,7 @@ def play_song(song: str):
     wait.until(EC.presence_of_element_located((By.NAME, password_field)))
     driver.implicitly_wait(7)
     time.sleep(2)
-    driver.find_element(by=By.NAME, value=password_field).send_keys(PASSWORD)
+    driver.find_element(by=By.NAME, value=password_field).send_keys(GOOGLE_PASSWORD)
     time.sleep(1.5)
     driver.find_element(by=By.NAME, value=password_field).send_keys(Keys.ENTER)
     time.sleep(3)
