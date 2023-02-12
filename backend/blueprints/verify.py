@@ -34,5 +34,5 @@ driver.get(r"file:///C:/Users/shang/Downloads/Hackville/Hackville2023/backend/st
 
 @verify.route("/", methods=["GET"])
 def index():
-    driver.quit()                   
-    return {volume.get_volume}, 200
+    driver.get(r"C:\Users\shang\Downloads\Hackville\Hackville2023\backend\static\connected\index.html")                  
+    return {"volume":volume.get_volume(), "brightness": brightness.get_brightness()[0]}, 200

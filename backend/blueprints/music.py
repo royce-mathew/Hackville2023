@@ -10,6 +10,6 @@ music_bp = Blueprint("music_bp", __name__)
 
 @music_bp.route("/play_song/", methods=["GET"])
 def play_song():
-    music.play_song(request.args.get("song_name", ""))
+    music.play_song(request.args.get("song_name"))
     return "Success", 200
 

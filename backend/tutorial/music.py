@@ -34,24 +34,30 @@ def play_song(song: str):
 
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.sign-in-link.ytmusic-nav-bar')))
     driver.find_element(by=By.CSS_SELECTOR, value='.sign-in-link.ytmusic-nav-bar').click()
+    time.sleep(3)
 
     username_field = 'identifier'
     wait.until(EC.presence_of_element_located((By.NAME, username_field)))
+    driver.implicitly_wait(7)
     driver.find_element(by=By.NAME, value=username_field).send_keys(USERNAME)
     driver.find_element(by=By.NAME, value=username_field).send_keys(Keys.ENTER)
+    time.sleep(3)
 
-    driver.implicitly_wait(7)
     password_field = 'Passwd'
     wait.until(EC.presence_of_element_located((By.NAME, password_field)))
+    driver.implicitly_wait(7)
     time.sleep(2)
     driver.find_element(by=By.NAME, value=password_field).send_keys(PASSWORD)
+    time.sleep(1.5)
     driver.find_element(by=By.NAME, value=password_field).send_keys(Keys.ENTER)
-    # time.sleep(7)
+    time.sleep(3)
     
+    driver.implicitly_wait(7)
     search_button = 'tp-yt-paper-icon-button.ytmusic-search-box, input.ytmusic-search-box, input.ytmusic-search-box::placeholder'
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, search_button)))
     driver.find_element(by=By.CSS_SELECTOR, value=search_button).click()
     driver.find_element(by=By.CSS_SELECTOR, value='input.ytmusic-search-box').send_keys(song)
+    time.sleep(1.5)
     driver.find_element(by=By.CSS_SELECTOR, value='input.ytmusic-search-box').send_keys(Keys.ENTER)
     time.sleep(3)
 
