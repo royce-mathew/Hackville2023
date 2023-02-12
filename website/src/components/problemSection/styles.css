@@ -1,0 +1,38 @@
+.problem {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    gap: 20px;
+}
+
+.problem__image img {
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.problem__image {
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.problem__text {
+    padding: 0px 20px;
+    text-shadow: 0px 0px 20px black;
+}
+
+.problem__text h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0px 0px 20px white;
+}
+
+.problem__text li {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.problem__text ul {
+    padding-left: 20px;
+}

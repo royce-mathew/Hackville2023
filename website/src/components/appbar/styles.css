@@ -1,0 +1,39 @@
+.appbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.appbar img {
+    height: 70%;
+}
+
+.appbar__jump-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+}
+
+.appbar__jump-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.appbar__jump-links button {
+    background-color: limegreen;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+

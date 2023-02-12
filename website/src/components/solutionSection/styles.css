@@ -1,0 +1,40 @@
+.solution {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    gap: 20px;
+    text-align: right;
+}
+
+.solution__image img {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.solution__image {
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.solution__text {
+    padding: 0px 20px;
+    text-shadow: 0px 0px 20px black;
+}
+
+.solution__text h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0px 0px 20px white;
+}
+
+.solution__text li {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 5px black;
+}
+
+.solution__text ul {
+    direction: rtl;
+    padding-right: 20px;
+}
