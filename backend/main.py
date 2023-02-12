@@ -10,7 +10,7 @@ from blueprints.music import music_bp
 
 # Initialize App
 app = Flask(__name__)
-hostname = socket.getfqdn() # Get the hostname
+hostname = socket.gethostname() if len(socket.gethostname()) < len(socket.getfqdn()) else socket.getfqdn() # Get the hostname
 
 # Register Blueprints
 app.register_blueprint(browser, url_prefix="/api/browser")
@@ -26,4 +26,4 @@ def index():
     return "Ok", 200
 
 if __name__ == "__main__":
-    app.run(host=socket.gethostbyname_ex(hostname)[2][1], debug=False, port=8080)
+    app.run(host=socket.gethostbyname(hostname)[2][1], debug=False, port=8080)
