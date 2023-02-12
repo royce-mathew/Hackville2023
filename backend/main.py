@@ -26,4 +26,4 @@ def index():
     return "Ok", 200
 
 if __name__ == "__main__":
-    app.run(host=socket.gethostbyname(hostname)[2][1], debug=False, port=8080)
+    app.run(host=socket.gethostbyname(hostname), debug=False, port=8080)
