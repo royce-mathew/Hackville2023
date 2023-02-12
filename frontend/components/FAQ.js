@@ -11,7 +11,6 @@ const FAQ = ({ip}) => {
   const [faqPrompt, setFaqPrompt] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  console.log('faqResponse', faqResponse);
   return (
     <>
       <MacroBlock
