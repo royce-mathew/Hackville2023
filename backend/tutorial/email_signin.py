@@ -9,11 +9,11 @@ from config import GOOGLE_USERNAME, GOOGLE_PASSWORD
 check = False
 
 
-url = 'https://www.google.com/gmail/about/'
-options = uc.ChromeOptions()
-driver = uc.Chrome(options=options, use_subprocess=True)
 
 def login(sleep: int):
+    url = 'https://www.google.com/gmail/about/'
+    options = uc.ChromeOptions()
+    driver = uc.Chrome(options=options, use_subprocess=True)
     # open the gmail website
     driver.get(url)
     time.sleep(sleep)
