@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Hackville2023/static/css/main.5f939e4e.css",
+    "main.js": "/Hackville2023/static/js/main.354c1de7.js",
+    "static/media/group.png": "/Hackville2023/static/media/group.ba0e6f104e848cfb0c94.png",
+    "static/media/demo.png": "/Hackville2023/static/media/demo.78071fbee2048cab8a6a.png",
+    "static/media/problem.jpg": "/Hackville2023/static/media/problem.653558d2441886b609ab.jpg",
+    "static/media/logo.png": "/Hackville2023/static/media/logo.f28c76b0cc3013f0ed01.png",
+    "index.html": "/Hackville2023/index.html",
+    "main.5f939e4e.css.map": "/Hackville2023/static/css/main.5f939e4e.css.map",
+    "main.354c1de7.js.map": "/Hackville2023/static/js/main.354c1de7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f939e4e.css",
+    "static/js/main.354c1de7.js"
+  ]
+}
