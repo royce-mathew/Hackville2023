@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import volumePNG from '../assets/volume.png';
 
-const VolumeSlider = ({ip}) => {
+const VolumeSlider = ({ip, volume, setVolume}) => {
   const onChangeHandler = volume => {
     axios
       .get(`http://${ip}:8080/api/sliders/volume/?p=${Math.floor(volume)}`)
@@ -28,8 +28,10 @@ const VolumeSlider = ({ip}) => {
           minValue={0}
           maxValue={100}
           step={10}
-          onChangeEnd={volume => {
-            onChangeHandler(volume);
+          value={volume}
+          onChangeEnd={newVolume => {
+            onChangeHandler(newVolume);
+            setVolume(newVolume);
           }}>
           <Slider.Track>
             <Slider.FilledTrack />

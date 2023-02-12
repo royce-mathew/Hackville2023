@@ -5,15 +5,18 @@ import axios from 'axios';
 
 import logoPNG from '../assets/logo.png';
 
-const GetIpScreen = ({setIp}) => {
+const GetIpScreen = ({setIp, setVolume, setBrightness}) => {
   const [text, setText] = useState('');
 
   const onSubmitHandler = () => {
     axios
       .get(`http://${text}:8080/api/verify`)
       .then(res => {
-        if (res.data == 'Success') {
+        console.log(res.data);
+        if (res.data) {
           setIp(text);
+          setVolume(res.data.volume);
+          setBrightness(res.data.brightness);
         }
       })
       .catch(err => {
