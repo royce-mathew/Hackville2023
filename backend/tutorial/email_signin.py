@@ -5,6 +5,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import time
 
+
+check = False
+
+
 def get_login_info():
     info = []
     f = open("login.txt")
@@ -40,7 +44,14 @@ def login(sleep: int):
     driver.find_element(by=By.NAME, value='Passwd').send_keys(PASSWORD)
     time.sleep(sleep)
     driver.find_element(by=By.CSS_SELECTOR, value='.VfPpkd-LgbsSe-OWXEXe-k8QpJ:not(:disabled)').click()
-    time.sleep(20)
+    time.sleep(3)
 
-
-login(1.5)
+    global check
+    while not check:
+        try:
+            if driver.title:
+                continue
+        except:
+            check = True
+    
+    driver.quit()

@@ -1,7 +1,7 @@
 from flask import Flask, json, Blueprint
 # from werkzeug.exceptions import HTTPException
 import socket
-
+from bs4 import BeautifulSoup
 
 # Import blueprints
 from blueprints.browser import browser
