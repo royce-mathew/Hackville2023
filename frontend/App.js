@@ -31,11 +31,17 @@ const App = () => {
   const [wikiSearch, setWikiSearch] = useState('');
   const [ytmusicPrompt, setYtmusicPrompt] = useState(false);
   const [ytmusicSearch, setYtmusicSearch] = useState('');
+  const [brightness, setBrightness] = useState(60);
+  const [volume, setVolume] = useState(60);
 
   if (!ip) {
     return (
       <NativeBaseProvider>
-        <GetIpScreen setIp={setIp} />
+        <GetIpScreen
+          setIp={setIp}
+          setBrightness={setBrightness}
+          setVolume={setVolume}
+        />
       </NativeBaseProvider>
     );
   } else {
@@ -46,11 +52,15 @@ const App = () => {
             <Macro
               icon={chromePNG}
               color="cyan"
-              route={`http://${ip}:8080/api/browser`}
+              route={`http://${ip}:8080/api/browser/open`}
               text={'Open Browser'}
             />
-            <VolumeSlider ip={ip} />
-            <BrightnessSlider ip={ip} />
+            <VolumeSlider ip={ip} volume={volume} setVolume={setVolume} />
+            <BrightnessSlider
+              ip={ip}
+              brightness={brightness}
+              setBrightness={setBrightness}
+            />
             <Macro
               icon={youtubePNG}
               color="red"
@@ -147,14 +157,14 @@ const App = () => {
                     <Button
                       width={'100%'}
                       onPress={() => {
+                        setYtmusicPrompt(false);
+                        setYtmusicSearch('');
                         axios
                           .get(
-                            `http://${ip}:8080/api/music/play_song?q=${ytmusicSearch}`,
+                            `http://${ip}:8080/api/music/play_song?song_name=${ytmusicSearch}`,
                           )
                           .then(res => {
                             console.log(res.data);
-                            setYtmusicPrompt(false);
-                            setYtmusicSearch('');
                           })
                           .catch(err => {
                             console.log(err);

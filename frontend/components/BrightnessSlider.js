@@ -4,7 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import brightnessPNG from '../assets/brightness.png';
 
-const BrightnessSlider = ({ip}) => {
+const BrightnessSlider = ({ip, brightness, setBrightness}) => {
   const onChangeHandler = brightness => {
     axios
       .get(
@@ -29,8 +29,10 @@ const BrightnessSlider = ({ip}) => {
           minValue={0}
           maxValue={100}
           step={10}
+          value={brightness}
           onChangeEnd={brightness => {
             onChangeHandler(brightness);
+            setBrightness(brightness);
           }}>
           <Slider.Track>
             <Slider.FilledTrack />
