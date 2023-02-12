@@ -7,5 +7,5 @@ interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
 volume = cast(interface, POINTER(IAudioEndpointVolume))
 
 def set_volume(vol: str):
-    vol = float(vol);
+    vol = float(vol)
     volume.SetMasterVolumeLevelScalar(vol/100, None)

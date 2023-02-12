@@ -10,8 +10,6 @@ from blueprints.sliders import sliders
 from blueprints.wikipedia import wikipedia
 from blueprints.music import music_bp
 
-
-
 # Initialize App
 app = Flask(__name__)
 hostname = socket.getfqdn() # Get the hostname
@@ -23,12 +21,11 @@ app.register_blueprint(sliders, url_prefix="/api/sliders")
 app.register_blueprint(wikipedia, url_prefix='/api/wikipedia')
 app.register_blueprint(music_bp, url_prefix='/api/music')
 
-
 # Root Directory
 @app.route("/api/")
 def index():
     print("/api")
-    return "Ok", 200;
+    return "Ok", 200
 
 if __name__ == "__main__":
-    app.run(host=socket.gethostbyname_ex(hostname)[2][0], debug=True, port=8080)
+    app.run(host=socket.gethostbyname_ex(hostname)[2][1], debug=False, port=8080)
