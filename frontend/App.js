@@ -17,6 +17,7 @@ import axios from 'axios';
 import chromePNG from './assets/chrome.png';
 import youtubePNG from './assets/youtube.png';
 import wikipediaPNG from './assets/wikipedia.png';
+import FAQ from './components/FAQ';
 
 const config = {
   useSystemColorMode: false,
@@ -50,18 +51,6 @@ const App = () => {
         <NativeBaseProvider theme={customTheme}>
           <ScrollView style={styles.main}>
             <Macro
-              icon={chromePNG}
-              color="cyan"
-              route={`http://${ip}:8080/api/browser/open`}
-              text={'Open Browser'}
-            />
-            <VolumeSlider ip={ip} volume={volume} setVolume={setVolume} />
-            <BrightnessSlider
-              ip={ip}
-              brightness={brightness}
-              setBrightness={setBrightness}
-            />
-            <Macro
               icon={youtubePNG}
               color="red"
               onClick={() => {
@@ -69,6 +58,13 @@ const App = () => {
               }}
               text={'Open Youtube Music'}
             />
+            <VolumeSlider ip={ip} volume={volume} setVolume={setVolume} />
+            <BrightnessSlider
+              ip={ip}
+              brightness={brightness}
+              setBrightness={setBrightness}
+            />
+            <FAQ ip={ip} />
             <Macro
               icon={wikipediaPNG}
               color="grey"
@@ -78,12 +74,10 @@ const App = () => {
               text={'Open Encyclopedia'}
             />
             <Macro
-              icon={wikipediaPNG}
-              color="grey"
-              onClick={() => {
-                setWikiPrompt(true);
-              }}
-              text={'Ask Me Anything!'}
+              icon={chromePNG}
+              color="cyan"
+              route={`http://${ip}:8080/api/browser/open`}
+              text={'Open Browser'}
             />
             <View style={{height: 20}}></View>
             <AlertDialog

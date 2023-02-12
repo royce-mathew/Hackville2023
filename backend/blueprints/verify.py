@@ -14,6 +14,7 @@ verify = Blueprint("verify", __name__)
 options = Options()
 options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+driver.maximize_window()
 
 # hostname = socket.getfqdn()
 hostname = socket.gethostname() if len(socket.gethostname()) < len(socket.getfqdn()) else socket.getfqdn()

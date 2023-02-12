@@ -1,24 +1,21 @@
-import openai
-import json;
-import backend.config as config
+import cohere
+import config as config
 
 
-openai.api_key = config.OPENAI_API_KEY;
+co = cohere.Client(config.COHERE_API_KEY);
 
 def evaluate_input(input_sentence: str):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=input_sentence,
-        temperature=0.9,
-        max_tokens=150,
-        top_p=1,
-        frequency_penalty=0.0,
-        presence_penalty=0.6,
-        stop=[" Human:", " AI:"]
+    response = co.generate( 
+        model='xlarge', 
+        prompt = input_sentence,
+        max_tokens=200, 
+        temperature=0.8,
     )
-    try:
-        return response["choices"][0]["text"].strip()
-    except Exception:
+
+    print(response.generations)
+
+    if (response.generations[0]):
+        return response.generations[0].text
+    else:
         return "An Exception Occured"
 
-print(evaluate_input("How are you doing?"))
