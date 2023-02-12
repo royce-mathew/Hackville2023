@@ -1,9 +1,5 @@
 from flask import Flask, json, Blueprint
-from bs4 import BeautifulSoup
-
-# from werkzeug.exceptions import HTTPException
 import socket
-from bs4 import BeautifulSoup
 
 # Import blueprints
 from blueprints.browser import browser
@@ -30,12 +26,6 @@ app.register_blueprint(music_bp, url_prefix='/api/music')
 @app.route("/api/")
 def index():
     print("/api")
-    # 
-    with open("index.html") as html_file:
-        soup  = BeautifulSoup(html_file, "html.parser")
-        element = soup.find("h2", id="ipAddress")
-        print(element.text)
-
     return "Ok", 200;
 
 if __name__ == "__main__":
