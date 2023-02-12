@@ -9,3 +9,6 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 def set_volume(vol: str):
     vol = float(vol)
     volume.SetMasterVolumeLevelScalar(vol/100, None)
+
+def get_volume():
+    return round(volume.GetMasterVolumeLevelScalar() * 100)
