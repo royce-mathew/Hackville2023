@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="https://royce-mathew.github.io/Hackville2023/)">Easy Connect</a></h1>
+  <h1><a href="https://royce-mathew.github.io/Hackville2023/">Easy Connect</a></h1>
   <p><b>Easily Control your Desktop through your Mobile Device</b></p>
   <img src="https://github.com/royce-mathew/Hackville2023/blob/master/website/src/assets/demo.png" width="350" title="Example">
 </div>
