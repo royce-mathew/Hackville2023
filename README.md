@@ -1,4 +1,9 @@
 # [Easy Connect](https://royce-mathew.github.io/Hackville2023/)
+<p align="center">
+  <img src="https://github.com/royce-mathew/Hackville2023/blob/master/website/src/assets/demo.png" width="350" title="Example">
+</p>
+
+## Introduction
 Our submission for Hackville 2023. A remote desktop control application that lets you control your desktop using your phone. Our project provides a convenient and efficient way for you to manage your desktop.
 
 We believe our project will provide a valuable solution to individuals who are inexperienced with technology. People who are inexperienced with technology generally have a harder time working on their desktop compared to their mobile phones. We are confident that our application will provide a smooth and seamless user experience.
